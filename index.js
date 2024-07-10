@@ -1,10 +1,17 @@
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 const app = express();
+const bookRoute = require("./routes/book.route.js");
 
 app.get("/", function (req, res) {
   res.send("Hello World");
 });
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// routes
+app.use("/api/books", bookRoute);
 
 mongoose
   .connect(

@@ -2,9 +2,14 @@ const mongoose = require("mongoose");
 
 const BookSchema = mongoose.Schema(
   {
-    name: {
+    author: {
       type: String,
-      required: [true, "Please enter book name"],
+      required: [true, "Please enter book author"],
+    },
+
+    title: {
+      type: String,
+      required: [true, "Please enter book author"],
     },
 
     price: {
