@@ -2,10 +2,6 @@ const express = require("express");
 const { default: mongoose } = require("mongoose");
 const app = express();
 
-app.listen(3000, () => {
-  console.log("server is running");
-});
-
 app.get("/", function (req, res) {
   res.send("Hello World");
 });
@@ -16,6 +12,9 @@ mongoose
   )
   .then(() => {
     console.log("connected to the database");
+    app.listen(3000, () => {
+      console.log("server is running");
+    });
   })
   .catch(() => {
     console.log("not connected to the database");
